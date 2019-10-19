@@ -35,7 +35,6 @@ class SettingRepository extends ModuleRepository
     public function byKey($key, $section = null)
     {
         $setting = $this->model->when($section, function ($query) use ($section) {
-            dump($section);
             $query->where('section', $section);
         })->where('key', $key);
 
